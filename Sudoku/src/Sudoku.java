@@ -66,15 +66,14 @@ public class Sudoku {
 		value = in.nextInt();
 		System.out.print("\n\n\n\n\n\n\n\n\n\n");
 		if(!(value >= 1 && value <=9))
-			System.out.println("Ban phai nhap gia tri tu 0 -> 9!!!");
+			
 		else if(replace[input_x][input_y])
-			System.out.println("Ban khong the thay doi gia tri o nay!!!");
 		else if(checkRow())
-			System.out.println("Gia tri ban nhap da ton tai trong hang!!!");
+		
 		else if(checkColumn())
-			System.out.println("Gia tri ban nhap da ton tai trong cot!!!");
+		
 		else if(checkZone())
-			System.out.println("Gia tri ban nhap da ton tai trong zone!!!");
+		
 		else
 			mat[input_x-1][input_y-1]=value;
 	}

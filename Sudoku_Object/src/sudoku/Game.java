@@ -12,7 +12,12 @@ public class Game {
 				node[i][j].setZone((i/3)*3+j/3);
 			}
 	}
-	public void setInput(int row,int column,int value) {
+	public boolean setInput(int row,int column,int value) {
+		if(checkColumn(column,value) || checkRow(row,value) || node[row][column].getReverse())
+			return false;
+		else
+			setNode(row,column,value);
+		return true;
 	}
 	public void setNode(int row,int column,int value) {
 		node[row][column].setValue(value);
@@ -40,7 +45,7 @@ public class Game {
 		System.out.println("   1 2 3   4 5 6   7 8 9 ");
 		for(int i =0;i<9;i++) {
 			if(i%3==0)
-				System.out.println("  -----------------------");
+				System.out.println("  ------- ------- -------");
 			System.out.print(i+1);
 			for(int j = 0; j<9;j++)
 			{
@@ -55,6 +60,6 @@ public class Game {
 			}
 			
 		}
-		System.out.println("  -----------------------");
+		System.out.println("  ------- ------- -------");
 	}
 }

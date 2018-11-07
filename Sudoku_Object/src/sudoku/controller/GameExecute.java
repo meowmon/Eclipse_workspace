@@ -1,10 +1,16 @@
 package sudoku.controller;
 import sudoku.model.*;
+import sudoku.view.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class GameExecute {
 	static int sizeZone=3,fullSize=sizeZone*sizeZone;
+	GameView view;
 	private Node node[][] = new Node[fullSize][fullSize];
-	public GameExecute() {
+	public GameExecute() throws IOException {
 		for(int i = 0;i<9;i++) 
 			for(int j = 0; j<9;j++){
 				node[i][j] = new Node();
@@ -13,12 +19,47 @@ public class GameExecute {
 				node[i][j].setValue(0);
 				node[i][j].setZone(i/3*3+j/3);
 			}
+		loadInput();
+		view=new GameView(node);
+	}
+	public void loadInput() {
+		File file = new File("input.txt");
+		if(!file.exists()) {
+			try {
+				file.createNewFile();
+			} 
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		int input_x;
+		Scanner fin = null;
+		try {
+			fin = new Scanner(file);
+		} 
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		do {
+			input_x = fin.nextInt();
+			if(input_x==0)
+				break;
+			int input_y = fin.nextInt();
+			node[input_x-1][input_y-1].setValue(fin.nextInt());
+			if (fin.nextInt()==0)
+				node[input_x-1][input_y-1].setReverse(false);
+		} while (input_x!=0);
+		fin.close();
 	}
 	public boolean setInput(int row,int column,int value) {
-		if(checkColumn(column,value) || checkRow(row,value) || node[row-1][column-1].getReverse() || checkZone(row,column,value))
+		if(checkColumn(column,value) || checkRow(row,value) || !node[row-1][column-1].getReverse() || checkZone(row,column,value)) {
+			view=new GameView(node);
 			return false;
-		else
+		}
+		else {
 			setNode(row,column,value);
+			view=new GameView(node);
+			}
 		return true;
 	}
 	private void setNode(int row,int column,int value) {

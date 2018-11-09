@@ -27,7 +27,7 @@ public class Node {
 	public boolean isMasterNode() {
 		return masterNode;
 	}
-	public boolean isMaster() {
+	public boolean haveMaster() {
 		return master;
 	}
 }

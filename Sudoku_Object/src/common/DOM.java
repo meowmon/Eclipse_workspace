@@ -1,5 +1,5 @@
 package common;
 
-public class IOXML {
+public class DOM {
 
 }

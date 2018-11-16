@@ -12,8 +12,15 @@
 	</script>
 </head>
 <body>
+	<%
+		String language = request.getParameter("langugage");
+	%>
 	<form action="employee" method="POST" id='frmEmployee'>
 		<table>
+			<tr>
+				<td>User name</td>
+				<td><input name='username' id='username' type='text'></td>
+			</tr>
 			<tr>
 				<td>Name</td>
 				<td><input name='name' id='name' type='text'></td>
@@ -23,10 +30,16 @@
 				<td><input name='age' id='age' type='text'></td>
 			</tr>
 			<tr>
+				<td>Favorite sport</td>
+				<td><input name='favSport' id='favSport' type='text'></td>
+			</tr>
+			<tr>
 				<td><input type='button' value="Save" onclick="validate()" ></td>
 				<td><input type='reset' value='Reset'/></td>
 			</tr>
+			
 		</table>
+		<input type="hidden" name="language1" value='<%=language%>'/>
 	</form>
 </body>
 </html>

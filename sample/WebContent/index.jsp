@@ -7,6 +7,6 @@
 <title>Hello world!</title>
 </head>
 <body>
-	<a href="newEmployee.jsp?langugage=vi_VN">New Employee</a>
+<a href="employeeList.jsp">List Employee</a>
 </body>
 </html>

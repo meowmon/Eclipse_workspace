@@ -1,3 +1,4 @@
+<%@page import="sample.test.common.Constants"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
 	<%
 		String language = request.getParameter("langugage");
 	%>
-	<form action="employee" method="POST" id='frmEmployee'>
+	<form action="employee?<%=Constants.ACTION%>=<%=Constants.ACTION_CREATE%>" method="POST" id='frmEmployee'>
 		<table>
 			<tr>
 				<td>User name</td>

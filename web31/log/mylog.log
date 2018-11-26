@@ -1,0 +1,3 @@
+INFO    2018-11-26 12:31:56,614 [http-nio-8080-exec-3] web31.controller.ServletController  - There is a User access into listBook!
+INFO    2018-11-26 12:31:59,067 [http-nio-8080-exec-4] web31.controller.ServletController  - delete Successfully
+INFO    2018-11-26 12:31:59,070 [http-nio-8080-exec-5] web31.controller.ServletController  - There is a User access into listBook!
